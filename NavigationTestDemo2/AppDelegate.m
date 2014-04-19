@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "RootViewController.h"
 
 @implementation AppDelegate
+
+@synthesize rootView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -16,6 +19,15 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    self.rootView = [[RootViewController alloc] init];
+    [self.rootView setTitle:@"First View"];
+    
+    [self.window setRootViewController:self.rootView];
+    
+//    [self.window addSubview:rootView.view];
+    
+    [self.rootView.view removeFromSuperview];
     return YES;
 }
 
